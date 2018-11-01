@@ -20,6 +20,7 @@
     "apidoc": "^0.17.6",
     "async": "^2.6.1",
     "bcrypt-nodejs": "0.0.3",
+    "crypto": "^1.0.1",
     "email-templates": "^5.0.2",
     "express": "^4.16.4",
     "express-bearer-token": "^2.2.0",
