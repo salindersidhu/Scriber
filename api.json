@@ -25,6 +25,10 @@
 		"sendgrid": {
 			"key": ""
 		},
+		"ssl": {
+			"key": "",
+			"cert": ""
+		},
 		"session": {
 			"secure": true,
 			"http_only": true,
