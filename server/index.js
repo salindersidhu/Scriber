@@ -10,7 +10,7 @@ const bearerToken = require('express-bearer-token');
 const app = express();
 const router = express.Router();
 const routes = require('./routes/');
-const config = require('../api.json')[process.env.NODE_ENV || 'development'];
+const config = require('./config.json')[process.env.NODE_ENV || 'development'];
 
 /* Configure Database connection */
 mongoose.connect(config.database.uri, {useNewUrlParser: true});

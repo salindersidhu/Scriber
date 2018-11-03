@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Audio to Text Transcription Service",
   "scripts": {
-    "start": "node API/index.js",
+    "start": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "doc": "rm -rf API/doc && apidoc -i API/ -o API/doc/"
+    "docs": "rm -rf server/docs && apidoc -i server/ -o server/docs/"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,7 @@
     "express": "^4.16.4",
     "express-bearer-token": "^2.2.0",
     "express-validator": "^5.3.0",
-    "mongoose": "^5.3.8",
+    "mongoose": "^5.3.9",
     "morgan": "^1.9.1",
     "njwt": "^0.4.0",
     "nodemon": "^1.18.5",
