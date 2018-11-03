@@ -3,10 +3,19 @@
   "version": "1.0.0",
   "description": "Audio to Text Transcription Service",
   "scripts": {
-    "start": "node server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node server/index.js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "docs": "rm -rf server/docs && apidoc -i server/ -o server/docs/"
   },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/salindersidhu/Scriber.git"
@@ -18,10 +27,13 @@
   },
   "homepage": "https://github.com/salindersidhu/Scriber#readme",
   "dependencies": {
+    "@material-ui/core": "^3.3.2",
+    "@sendgrid/mail": "^6.3.1",
+    "acorn": "^6.0.2",
+    "ajv": "^6.5.4",
     "apidoc": "^0.17.6",
     "async": "^2.6.1",
     "bcrypt-nodejs": "0.0.3",
-    "crypto": "^1.0.1",
     "email-templates": "^5.0.2",
     "express": "^4.16.4",
     "express-bearer-token": "^2.2.0",
@@ -31,11 +43,11 @@
     "njwt": "^0.4.0",
     "nodemon": "^1.18.5",
     "pug": "^2.0.3",
-    "sendgrid": "^5.2.3"
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-scripts": "^2.1.1"
   },
   "devDependencies": {
-    "eslint": "^5.8.0",
-    "eslint-plugin-node": "^8.0.0",
-    "eslint-plugin-react": "^7.11.1"
+    "eslint": "^5.6.0"
   }
 }

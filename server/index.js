@@ -13,7 +13,7 @@ const routes = require('./routes/');
 const config = require('./config.json')[process.env.NODE_ENV || 'development'];
 
 /* Configure Database connection */
-mongoose.connect(config.database.uri, {useNewUrlParser: true});
+mongoose.connect(config.database.uri, { useNewUrlParser: true });
 mongoose.connection.on('error', console.error.bind(console, 'mongoose error:'));
 
 /* Set keyword variables */
@@ -23,7 +23,7 @@ app.set('port', config.port);
 app.use(logger('dev'));
 app.use(bearerToken());
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '../dist')));
 
 /* Configure API endpoints */

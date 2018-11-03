@@ -7,15 +7,8 @@
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 2018,
-        "sourceType": "module"
+        "ecmaVersion": 2018
     },
-    "plugins": [
-        "react"
-    ],
     "rules": {
         "linebreak-style": [
             "error",
@@ -29,7 +22,14 @@
             "error",
             "always"
         ],
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "prefer-const": "error",
+        "space-before-blocks": "error",
         "indent": 2,
+        "curly": "warn",
         "no-console": "off"
     }
 }
