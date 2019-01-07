@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Audio to Text Transcription Service",
   "scripts": {
-    "server": "node server/index.js",
+    "api": "node api/index.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "docs": "rm -rf server/docs && apidoc -i server/ -o server/docs/"
+    "docs": "rm -rf api/docs && apidoc -i api/ -o api/docs/"
   },
   "browserslist": [
     ">0.2%",
@@ -45,7 +45,8 @@
     "pug": "^2.0.3",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "react-scripts": "^2.1.1"
+    "react-scripts": "^2.1.1",
+    "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
     "eslint": "5.6.0"
