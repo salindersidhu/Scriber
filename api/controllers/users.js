@@ -1,14 +1,16 @@
 const zxcvbn = require('zxcvbn');
+const multer  = require('multer');
 const validator = require('express-validator/check');
 
 const users = require('../models/users');
 
 module.exports = {
+    multiPartForm: multer().none(),
     validateCreate: validator.checkSchema({
         name: {
             matches: {
-                errorMessage: 'Name should be at least 3 chars long',
                 options: '^(?=.*[a-zA-Z])(?=.{3,})',
+                errorMessage: 'Name should be at least 3 chars long'
             }
         },
         email: {
@@ -16,8 +18,8 @@ module.exports = {
         },
         password: {
             custom: {
-                errorMessage: 'Password zxcvbn score should be at least 3',
                 options: v => zxcvbn(v).score >= 3,
+                errorMessage: 'Password zxcvbn score should be at least 3'
             }
         }
     }),
