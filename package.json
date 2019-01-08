@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Audio to Text Transcription Service",
   "scripts": {
-    "api": "node api/index.js",
+    "api": "nodemon --watch api api/index.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -42,7 +42,6 @@
     "morgan": "^1.9.1",
     "multer": "^1.4.1",
     "njwt": "^0.4.0",
-    "nodemon": "^1.18.5",
     "pug": "^2.0.3",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
@@ -50,6 +49,7 @@
     "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
-    "eslint": "5.6.0"
+    "eslint": "5.6.0",
+    "nodemon": "^1.18.9"
   }
 }
