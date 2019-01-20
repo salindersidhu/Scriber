@@ -1,4 +1,5 @@
-const controller = require('../controllers/sessions');
+const multerController = require('../controllers/multer');
+const sessionsController = require('../controllers/sessions');
 
 module.exports = (router) => {
     router
@@ -24,7 +25,11 @@ module.exports = (router) => {
          * @apiErrorExample {json} Server Error
          *  HTTP/1.1 500 Internal Server Error
          */
-        .get(controller.multiPartForm, controller.guard, controller.info)
+        .get(
+            multerController.multiPartForm,
+            sessionsController.guard,
+            sessionsController.info
+        )
         /**
          * @api {post} /sessions Create Session Token
          * @apiName CreateSessionPost
@@ -54,5 +59,9 @@ module.exports = (router) => {
          * @apiErrorExample {json} Server Error
          *  HTTP/1.1 500 Internal Server Error
          */
-        .post(controller.multiPartForm, controller.validateCreate, controller.create);
+        .post(
+            multerController.multiPartForm,
+            sessionsController.validateCreate,
+            sessionsController.create
+        );
 };

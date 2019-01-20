@@ -1,11 +1,9 @@
 const zxcvbn = require('zxcvbn');
-const multer  = require('multer');
 const validator = require('express-validator/check');
 
 const users = require('../models/users');
 
 module.exports = {
-    multiPartForm: multer().none(),
     validateCreate: validator.checkSchema({
         name: {
             matches: {

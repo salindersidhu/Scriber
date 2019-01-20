@@ -1,13 +1,11 @@
 const njwt = require('njwt');
-const multer  = require('multer');
 const validator = require('express-validator/check');
 
 const utils = require('../utils');
+const config = require('../config');
 const users = require('../models/users');
-const config = require('../config.json')[process.env.NODE_ENV || 'development'];
 
 module.exports = {
-    multiPartForm: multer().none(),
     validateCreate: validator.checkSchema({
         email: {
             isEmail: true
@@ -23,7 +21,7 @@ module.exports = {
             return res.sendStatus(401);
         }
         // Verify and uncompress the token
-        njwt.verify(compToken, utils.SessionSignKey(), (njwtError, token) => {
+        njwt.verify(compToken, config.session.key, (njwtError, token) => {
             // If token is invalid
             if (njwtError) {
                 return res.sendStatus(401);
@@ -79,7 +77,7 @@ module.exports = {
                     sub: user._id,
                     scope: 'default',
                     iss: utils.ServerURL(req)
-                }, utils.SessionSignKey());
+                }, config.session.key);
                 token.setExpiration(utils.TotalTime(config.session.lifespan));
                 // Create compact bearer token and send
                 return res.status(200).json({ token: token.compact() });

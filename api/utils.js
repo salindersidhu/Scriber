@@ -1,7 +1,4 @@
 const url = require('url');
-const crypto = require('crypto');
-
-const RAND_STR_256 = crypto.randomBytes(256).toString('hex');
 
 module.exports = {
     TotalTime: (n) => {
@@ -13,8 +10,5 @@ module.exports = {
             host: req.get('host'),
             pathname: ''
         });
-    },
-    SessionSignKey: () => {
-        return RAND_STR_256;
     }
 };

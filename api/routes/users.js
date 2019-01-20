@@ -1,4 +1,5 @@
-const controller = require('../controllers/users');
+const usersController = require('../controllers/users');
+const multerController = require('../controllers/multer');
 
 module.exports = (router) => {
     router
@@ -32,5 +33,9 @@ module.exports = (router) => {
          * @apiErrorExample {json} Server Error
          *  HTTP/1.1 500 Internal Server Error
          */
-        .post(controller.multiPartForm, controller.validateCreate, controller.create);
+        .post(
+            multerController.multiPartForm,
+            usersController.validateCreate,
+            usersController.create
+        );
 };
