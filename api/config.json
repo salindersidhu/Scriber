@@ -7,14 +7,8 @@
 		"sendgrid": {
 			"key": ""
 		},
-		"cookie": {
-			"secure": false,
-			"http_only": true,
-			"same_site": true,
+		"session": {
 			"lifespan": 36000000
-		},
-		"token": {
-			"lifespan": 300000
 		}
 	},
 	"production": {
@@ -29,14 +23,8 @@
 			"key": "",
 			"cert": ""
 		},
-		"cookie": {
-			"secure": true,
-			"http_only": true,
-			"same_site": true,
+		"session": {
 			"lifespan": 36000000
-		},
-		"token": {
-			"lifespan": 300000
 		}
 	}
 }

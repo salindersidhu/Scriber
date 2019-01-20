@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Audio to Text Transcription Service",
   "scripts": {
-    "api": "nodemon --watch api api/index.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "docs": "rm -rf api/docs && apidoc -i api/ -o api/docs/"
+    "api": "nodemon --watch api api/index.js",
+    "api:docs": "rm -rf api/docs && apidoc -i api/ -o api/docs/"
   },
   "browserslist": [
     ">0.2%",
@@ -34,6 +34,7 @@
     "apidoc": "^0.17.6",
     "async": "^2.6.1",
     "bcrypt-nodejs": "0.0.3",
+    "crypto": "^1.0.1",
     "email-templates": "^5.0.2",
     "express": "^4.16.4",
     "express-bearer-token": "^2.2.0",
