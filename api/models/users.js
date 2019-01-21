@@ -21,7 +21,7 @@ var schema = new mongoose.Schema({
     },
     flags: {
         isActive: {
-            default: false,
+            default: true,
             type: Boolean
         }
     }
