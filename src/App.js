@@ -9,14 +9,18 @@ import {
 import './App.scss';
 
 // Pages
-import Login from './pages/Login';
+import Signin from './pages/Signin';
+import Signup from './pages/Signup';
+import Page404 from './pages/Page404';
 
 class App extends Component {
     render() {
         return (
             <Router>
                 <Switch>
-                    <Route exact path='/login' name="Login Page" component={Login} />
+                    <Route exact path='/signin' name="Signin Page" component={Signin} />
+                    <Route exact path='/signup' name="Signup Page" component={Signup} />
+                    <Route name="404" component={Page404} />
                 </Switch>
             </Router>
         );

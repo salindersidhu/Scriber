@@ -15,7 +15,7 @@ import {
     Row
 } from 'reactstrap';
 
-class Login extends Component {
+class Signin extends Component {
     render() {
         return (
             <div className="app flex-row align-items-center">
@@ -26,12 +26,12 @@ class Login extends Component {
                                 <Card className="p-4">
                                     <CardBody>
                                         <Form>
-                                            <h1>Login</h1>
+                                            <h1>Sign In</h1>
                                             <p className="text-muted">Sign In to your account</p>
                                             <InputGroup className="mb-3">
                                                 <InputGroupAddon addonType="prepend">
                                                     <InputGroupText>
-                                                        <i className="icon-user"></i>
+                                                        <i className="fas fa-user-alt"></i>
                                                     </InputGroupText>
                                                 </InputGroupAddon>
                                                 <Input type="text" placeholder="Username" autoComplete="username" />
@@ -39,20 +39,27 @@ class Login extends Component {
                                             <InputGroup className="mb-4">
                                                 <InputGroupAddon addonType="prepend">
                                                     <InputGroupText>
-                                                        <i className="icon-lock"></i>
+                                                        <i className="fas fa-key"></i>
                                                     </InputGroupText>
                                                 </InputGroupAddon>
-                                                <Input type="password" placeholder="Password" autoComplete="current-password" />
+                                                <Input type="password" placeholder="Password" autoComplete="password" />
                                             </InputGroup>
-                                            <Button color="primary" className="px-4">Login</Button>
+                                            <Row>
+                                                <Col xs="6">
+                                                    <Button color="primary" block>Sign In</Button>
+                                                </Col>
+                                                <Col xs="6" className="text-right">
+                                                    <Button color="link" className="px-0">Forgot password?</Button>
+                                                </Col>
+                                            </Row>
                                         </Form>
                                     </CardBody>
                                 </Card>
                                 <Card className="text-white bg-primary py-5 d-md-down-none" style={{ width: '44%' }}>
                                     <CardBody className="text-center">
                                         <div>
-                                            <h2>Sign up</h2>
-                                            <p>You must have an account to obtain access to this application.</p>
+                                            <h2>Sign Up</h2>
+                                            <p>Sign up now and create your own account to start transcribing audio with Scriber.</p>
                                             <Link to="/signup">
                                                 <Button color="primary" className="mt-3" active tabIndex={-1}>Sign Up Now!</Button>
                                             </Link>
@@ -68,4 +75,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default Signin;
