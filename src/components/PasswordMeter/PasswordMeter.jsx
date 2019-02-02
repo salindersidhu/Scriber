@@ -9,8 +9,6 @@ class PasswordMeter extends Component {
             return 'pm-red';
         } else if (value <= 40) {
             return 'pm-yellow';
-        } else if (value <= 60) {
-            return 'orange';
         } else if (value <= 80) {
             return 'orange';
         }
