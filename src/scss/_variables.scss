@@ -1,1 +1,10 @@
 // Variable overrides
+
+$pm-red:    #f82d47 !default;
+$pm-yellow: #ffc354 !default;
+
+$brands-colors: () !default;
+$brands-colors: map-merge((
+    "pm-red":     $pm-red,
+    "pm-yellow":  $pm-yellow,
+), $brands-colors);

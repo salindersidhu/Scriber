@@ -13,8 +13,25 @@ import {
     InputGroupText
 } from 'reactstrap';
 
+// Components
+import PasswordMeter from '../../components/PasswordMeter';
+
 class Signup extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            password: ''
+        };
+        this.onChange = this.onChange.bind(this);
+    }
+
+    onChange(e) {
+        this.setState({[e.target.name]: e.target.value});
+    }
+
     render() {
+        const { password } = this.state;
+
         return (
             <div className="app flex-row align-items-center">
                 <Container>
@@ -47,8 +64,18 @@ class Signup extends Component {
                                                     <i className="fas fa-key"></i>
                                                 </InputGroupText>
                                             </InputGroupAddon>
-                                            <Input type="password" placeholder="Password" autoComplete="password" />
+                                            <Input 
+                                                name="password"
+                                                type="password"
+                                                placeholder="Password"
+                                                autoComplete="password"
+                                                value={password}
+                                                onChange={this.onChange}
+                                            />
                                         </InputGroup>
+                                        <div className="mb-3">
+                                            <PasswordMeter value={password} />
+                                        </div>
                                         <InputGroup className="mb-4">
                                             <InputGroupAddon addonType="prepend">
                                                 <InputGroupText>
