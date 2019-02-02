@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
+import { Container, Row } from 'reactstrap';
 import CookieConsent from 'react-cookie-consent';
 
-// Components
-import ContainerCenter from '../../components/ContainerCenter';
+const message = "This website uses cookies to ensure you get the best experience on our website."
 
 class Landing extends Component {
     render() {
         return (
-            <ContainerCenter>
-                <CookieConsent>
-                    This website uses cookies to enhance the user experience.
-                </CookieConsent>
-            </ContainerCenter>
+            <div className="app flex-row align-items-center">
+                <Container>
+                    <Row className="justify-content-center">
+                        <CookieConsent>
+                            {message}
+                        </CookieConsent>
+                    </Row>
+                </Container>
+            </div>
         );
     }
 }
