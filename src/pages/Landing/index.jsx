@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container, Row } from 'reactstrap';
 import CookieConsent from 'react-cookie-consent';
 
-const message = "This website uses cookies to ensure you get the best experience on our website."
+const message = 'This website uses cookies to ensure you get the best experience on our website.';
 
 class Landing extends Component {
     render() {

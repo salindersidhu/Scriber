@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Progress } from 'reactstrap';
 
 import zxcvbn from 'zxcvbn';
@@ -16,13 +17,19 @@ class PasswordMeter extends Component {
     }
 
     render() {
-        const { value } = this.props;
-        let score = value.length > 0 ? (zxcvbn(value).score + 1) * 20 : 0;
-
+        const { password } = this.props;
+        const score = password.length > 0 ? (zxcvbn(password).score + 1) * 20 : 0;
         return (
             <Progress color={this.colorMap(score)} value={score} />
         );
     }
 }
+
+PasswordMeter.propTypes = {
+    /**
+     * String text password.
+     */
+    password: PropTypes.string
+};
 
 export default PasswordMeter;

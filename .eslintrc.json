@@ -5,7 +5,10 @@
         "es6": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module"
@@ -27,6 +30,7 @@
             "error",
             "always"
         ],
+        "react/no-unescaped-entities": "off",
         "prefer-const": "error",
         "space-before-blocks": "error",
         "indent": 2,

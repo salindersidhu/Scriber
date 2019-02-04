@@ -23,12 +23,12 @@ class Page404 extends Component {
                                 <p className="text-muted float-left">The page you are looking for was not found.</p>
                             </div>
                             <InputGroup className="input-prepend">
-                            <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                    <i className="fas fa-search"></i>
-                                </InputGroupText>
-                            </InputGroupAddon>
-                            <Input size="16" type="text" placeholder="What are you looking for?" />
+                                <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                        <i className="fas fa-search"></i>
+                                    </InputGroupText>
+                                </InputGroupAddon>
+                                <Input size="16" type="text" placeholder="What are you looking for?" />
                                 <InputGroupAddon addonType="append">
                                     <Button color="dark">Search</Button>
                                 </InputGroupAddon>

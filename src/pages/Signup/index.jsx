@@ -17,7 +17,7 @@ import {
 import PasswordMeter from 'components/PasswordMeter';
 
 class Signup extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             password: ''
@@ -26,7 +26,7 @@ class Signup extends Component {
     }
 
     onChange(e) {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     }
 
     render() {
@@ -74,7 +74,7 @@ class Signup extends Component {
                                             />
                                         </InputGroup>
                                         <div className="mb-3">
-                                            <PasswordMeter value={password} />
+                                            <PasswordMeter password={password} />
                                         </div>
                                         <InputGroup className="mb-4">
                                             <InputGroupAddon addonType="prepend">
