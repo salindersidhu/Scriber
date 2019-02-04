@@ -14,7 +14,7 @@ import {
 } from 'reactstrap';
 
 // Components
-import PasswordMeter from '../../components/PasswordMeter';
+import PasswordMeter from 'components/PasswordMeter';
 
 class Signup extends Component {
     constructor(props){

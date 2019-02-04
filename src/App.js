@@ -6,13 +6,13 @@ import {
 } from 'react-router-dom';
 
 // Styles
-import './App.scss';
+import 'App.scss';
 
 // Pages
-import Signin from './pages/Signin';
-import Signup from './pages/Signup';
-import Page404 from './pages/Page404';
-import Landing from './pages/Landing';
+import Signin from 'pages/Signin';
+import Signup from 'pages/Signup';
+import Page404 from 'pages/Page404';
+import Landing from 'pages/Landing';
 
 class App extends Component {
     render() {
