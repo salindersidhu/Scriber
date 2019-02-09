@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Row } from 'reactstrap';
-import CookieConsent from 'react-cookie-consent';
 
-const message = 'This website uses cookies to ensure you get the best experience on our website.';
+// Components
+import CookieBanner from 'components/CookieBanner';
 
 class Landing extends Component {
     render() {
@@ -10,9 +10,7 @@ class Landing extends Component {
             <div className="app flex-row align-items-center">
                 <Container>
                     <Row className="justify-content-center">
-                        <CookieConsent>
-                            {message}
-                        </CookieConsent>
+                        <CookieBanner />
                     </Row>
                 </Container>
             </div>
