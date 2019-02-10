@@ -31,7 +31,7 @@ class CookieBanner extends Component {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Learn more
+                    Learn More
                 </a>
             </CookieConsent>
         );

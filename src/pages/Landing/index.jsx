@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
-import { Container, Row } from 'reactstrap';
 
-// Components
-import CookieBanner from 'components/CookieBanner';
+// Pages
+import BasePage from 'pages/PageBase';
 
 class Landing extends Component {
     render() {
         return (
-            <div className="app flex-row align-items-center">
-                <Container>
-                    <Row className="justify-content-center">
-                        <CookieBanner />
-                    </Row>
-                </Container>
-            </div>
+            <BasePage>
+                <h1>Hello World</h1>
+            </BasePage>
         );
     }
 }
