@@ -14,7 +14,7 @@ class PageBase extends Component {
                 <div className="app flex-row align-items-center">
                     <Container>
                         <Row className="justify-content-center">
-                            <CookieBanner />
+                            <CookieBanner buttonClasses="btn-block-xs-only" />
                             {this.props.children}
                         </Row>
                     </Container>
