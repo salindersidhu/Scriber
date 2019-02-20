@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import CookieConsent from 'react-cookie-consent';
 
 const styles = {
-    'main': {
+    main: {
         fontSize: '16px',
         background: 'black'
     },
-    'button': {
+    button: {
         color: 'black',
         fontSize: '14px',
         fontWeight: 'bold',
@@ -26,13 +26,6 @@ class CookieBanner extends Component {
                 buttonClasses="btn-block-xs-only"
             >
                 This website uses cookies to ensure you get the best experience on our website.{' '}
-                <a
-                    href="https://cookiesandyou.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn More
-                </a>
             </CookieConsent>
         );
     }
