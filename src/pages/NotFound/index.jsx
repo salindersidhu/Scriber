@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Col } from 'reactstrap';
 
 // Pages
-import BasePage from 'pages/PageBase';
+import Base from 'pages/Base';
 
-class Page404 extends Component {
+class NotFound extends Component {
     render() {
         return (
-            <BasePage>
+            <Base>
                 <Col md="6">
                     <div className="clearfix">
                         <h1 className="float-left display-3 mr-4">
@@ -21,9 +21,9 @@ class Page404 extends Component {
                         </p>
                     </div>
                 </Col>
-            </BasePage>
+            </Base>
         );
     }
 }
 
-export default Page404;
+export default NotFound;

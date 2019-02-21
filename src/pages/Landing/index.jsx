@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 // Pages
-import BasePage from 'pages/PageBase';
+import Base from 'pages/Base';
 
 class Landing extends Component {
     render() {
         return (
-            <BasePage>
+            <Base>
                 <h1>Hello World</h1>
-            </BasePage>
+            </Base>
         );
     }
 }

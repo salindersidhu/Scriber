@@ -15,12 +15,12 @@ import {
 } from 'reactstrap';
 
 // Pages
-import BasePage from 'pages/PageBase';
+import Base from 'pages/Base';
 
 class Signin extends Component {
     render() {
         return (
-            <BasePage>
+            <Base>
                 <Col md="8">
                     <CardGroup>
                         <Card className="p-4">
@@ -68,7 +68,7 @@ class Signin extends Component {
                         </Card>
                     </CardGroup>
                 </Col>
-            </BasePage>
+            </Base>
         );
     }
 }
