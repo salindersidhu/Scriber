@@ -30,10 +30,10 @@ class Base extends Component {
                         src="./scriber.svg"
                         alt="scriber"
                         className="d-inline-block align-top"
-                        height="30"
-                        width="30"
+                        height="26"
+                        width="26"
                     />
-                    <h3 className="d-inline-block mb-0 pl-1">Scriber</h3>
+                    <h4 className="d-inline-block mb-0 pl-1">Scriber</h4>
                 </Header>
                 <div className="app flex-row align-items-center">
                     <Container>
