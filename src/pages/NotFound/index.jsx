@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Col } from 'reactstrap';
 
 // Pages
-import Base from 'pages/Base';
+import BasePage from 'pages/Base/Page';
 
 class NotFound extends Component {
     render() {
         return (
-            <Base>
+            <BasePage>
                 <Col md="6">
                     <div className="clearfix">
                         <h1 className="float-left display-3 mr-4">
@@ -21,7 +21,7 @@ class NotFound extends Component {
                         </p>
                     </div>
                 </Col>
-            </Base>
+            </BasePage>
         );
     }
 }

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 // Components
 import Header from 'components/Header';
+import Footer from 'components/Footer';
 
 const styles = {
     cookieBanner: {
@@ -21,11 +22,11 @@ const styles = {
     }
 };
 
-class Base extends Component {
+class BasePage extends Component {
     render() {
         return (
             <div>
-                <Header color="light" expand="md">
+                <Header color="light" fixed="top" expand="md" light>
                     <img
                         src="./scriber.svg"
                         alt="scriber"
@@ -50,16 +51,17 @@ class Base extends Component {
                         </Row>
                     </Container>
                 </div>
+                <Footer />
             </div>
         );
     }
 }
 
-Base.propTypes = {
+BasePage.propTypes = {
     /**
      * React object.
      */
     children: PropTypes.object
 };
 
-export default Base;
+export default BasePage;

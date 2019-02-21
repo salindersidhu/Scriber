@@ -12,7 +12,7 @@ import {
 } from 'reactstrap';
 
 // Pages
-import Base from 'pages/Base';
+import BasePage from 'pages/Base/Page';
 // Components
 import PasswordMeter from 'components/PasswordMeter';
 
@@ -32,7 +32,7 @@ class Signup extends Component {
     render() {
         const { password } = this.state;
         return (
-            <Base>
+            <BasePage>
                 <Col md="9" lg="7" xl="6">
                     <Card className="mx-4">
                         <CardBody className="p-4">
@@ -86,7 +86,7 @@ class Signup extends Component {
                         </CardBody>
                     </Card>
                 </Col>
-            </Base>
+            </BasePage>
         );
     }
 }

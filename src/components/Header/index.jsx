@@ -14,9 +14,9 @@ import PropTypes from 'prop-types';
 
 class Header extends Component {
     render() {
-        const { children, ...otherProps } = this.props;
+        const { children, ...attributes } = this.props;
         return (
-            <Navbar light {...otherProps}>
+            <Navbar {...attributes}>
                 <NavbarBrand href="/">
                     {children}
                 </NavbarBrand>
