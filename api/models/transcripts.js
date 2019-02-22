@@ -4,14 +4,13 @@ const mongoose = require('mongoose');
  * Define a mongoose schema representing audio transcript.
  */
 var schema = new mongoose.Schema({
-    userID: mongoose.Schema.Types.ObjectId,
+    userID: {
+        required: true,
+        type: mongoose.Schema.Types.ObjectId,
+    },
     name: {
         required: true,
         type: String
-    },
-    date: {
-        required: true,
-        type: Date
     },
     status: {
         default: 0,
