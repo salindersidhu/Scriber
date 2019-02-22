@@ -3,41 +3,45 @@ import {
     Navbar,
     NavbarBrand,
     NavbarToggler,
-    Collapse,
     Nav,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem
+    NavItem,
+    NavLink
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 class Header extends Component {
+    renderNavBrand(children) {
+        return (
+            <NavbarBrand href="/">
+                {children}
+            </NavbarBrand>
+        );
+    }
+
+    renderNavMenu() {
+        return (
+            <Nav className="ml-auto" navbar>
+                <NavItem className="d-md-down-none">
+                    <NavLink href="#">
+                        <i className="icon-bell"></i>
+                    </NavLink>
+                </NavItem>
+                <NavItem className="d-md-down-none">
+                    <NavLink href="#">
+                        <i className="icon-options"></i>
+                    </NavLink>
+                </NavItem>
+            </Nav>
+        );
+    }
+
     render() {
         const { children, ...attributes } = this.props;
         return (
             <Navbar {...attributes}>
-                <NavbarBrand href="/">
-                    {children}
-                </NavbarBrand>
+                {this.renderNavBrand(children)}
                 <NavbarToggler/>
-                <Collapse navbar>
-                    <Nav className="ml-auto" navbar>
-                        <UncontrolledDropdown nav inNavbar>
-                            <DropdownToggle nav caret>
-                                App
-                            </DropdownToggle>
-                            <DropdownMenu right>
-                                <DropdownItem>
-                                    About
-                                </DropdownItem>
-                                <DropdownItem>
-                                    Logout
-                                </DropdownItem>
-                            </DropdownMenu>
-                        </UncontrolledDropdown>
-                    </Nav>
-                </Collapse>
+                {this.renderNavMenu()}
             </Navbar>
         );
     }
