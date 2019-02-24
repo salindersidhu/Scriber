@@ -3,6 +3,7 @@ const validator = require('express-validator/check');
 
 const utils = require('../utils');
 const config = require('../config');
+const logs = require('../models/logs');
 const users = require('../models/users');
 
 module.exports = {
@@ -79,12 +80,46 @@ module.exports = {
                     iss: utils.ServerURL(req)
                 }, config.session.key);
                 token.setExpiration(utils.TotalTime(config.session.lifespan));
+                // Log event
+                logs.create({
+                    name: 'USER.LOGIN',
+                    user: {
+                        id: user._id
+                    },
+                    api: {
+                        type: req.method.toUpperCase(),
+                        url: req.originalUrl.toUpperCase()
+                    }
+                }, (createError, newLog) => {
+                    // If an error occured send 500 response
+                    if (createError || !newLog) {
+                        console.log(createError);
+                        return res.sendStatus(500);
+                    }
+                });
                 // Create compact bearer token and send
                 return res.status(200).json({ token: token.compact() });
             });
         });
     },
     info: (req, res) => {
+        // Log event
+        logs.create({
+            name: 'USER.INFO',
+            user: {
+                id: req.authorized.id
+            },
+            api: {
+                type: req.method.toUpperCase(),
+                url: req.originalUrl.toUpperCase()
+            }
+        }, (createError, newLog) => {
+            // If an error occured send 500 response
+            if (createError || !newLog) {
+                console.log(createError);
+                return res.sendStatus(500);
+            }
+        });
         // Send authorized User's name and email with response
         return res.status(200).json({
             name: req.authorized.name,

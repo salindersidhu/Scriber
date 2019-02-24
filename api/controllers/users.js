@@ -1,6 +1,7 @@
 const zxcvbn = require('zxcvbn');
 const validator = require('express-validator/check');
 
+const logs = require('../models/logs');
 const users = require('../models/users');
 
 module.exports = {
@@ -44,12 +45,29 @@ module.exports = {
                 name: req.body.name,
                 email: req.body.email,
                 password: req.body.password,
-            }, (createError, newUser) => {
+            }, (createUserError, newUser) => {
                 // If an error occured send 500 response
-                if (createError || !newUser) {
-                    console.error(createError);
+                if (createUserError || !newUser) {
+                    console.error(createUserError);
                     return res.sendStatus(500);
                 }
+                // Log event
+                logs.create({
+                    name: 'USER.CREATE',
+                    user: {
+                        id: newUser._id
+                    },
+                    api: {
+                        type: req.method.toUpperCase(),
+                        url: req.originalUrl.toUpperCase()
+                    }
+                },(createLogError, newLog) => {
+                    // If an error occured send 500 response
+                    if (createLogError || !newLog) {
+                        console.log(createLogError);
+                        return res.sendStatus(500);
+                    }
+                });
                 return res.sendStatus(200);
             });
         });
