@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 // Components
 import Header from 'components/Header';
-import Footer from 'components/Footer';
 
 const styles = {
     cookieBanner: {
@@ -26,16 +25,14 @@ class BasePage extends Component {
     render() {
         return (
             <div>
-                <Header color="light" fixed="top" expand="md" light>
-                    <img
-                        src="./scriber.svg"
-                        alt="scriber"
-                        className="d-inline-block align-top"
-                        height="26"
-                        width="26"
-                    />
-                    <h4 className="d-inline-block mb-0 pl-1">Scriber</h4>
-                </Header>
+                <Header
+                    name="Scriber"
+                    img="./scriber.svg"
+                    color="light"
+                    fixed="top"
+                    expand="md"
+                    light 
+                />
                 <div className="app flex-row align-items-center">
                     <Container>
                         <Row className="justify-content-center">
@@ -51,7 +48,6 @@ class BasePage extends Component {
                         </Row>
                     </Container>
                 </div>
-                <Footer />
             </div>
         );
     }

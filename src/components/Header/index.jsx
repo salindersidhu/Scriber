@@ -5,15 +5,22 @@ import {
     NavbarToggler,
     Nav,
     NavItem,
-    NavLink
+    NavLink,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 class Header extends Component {
-    renderNavBrand(children) {
+    renderNavBrand(name, img) {
         return (
             <NavbarBrand href="/">
-                {children}
+                <img
+                    src={img}
+                    alt={name}
+                    className="d-inline-block align-top"
+                    height="26"
+                    width="26"
+                />
+                <h4 className="d-inline-block mb-0 pl-1">{name}</h4>
             </NavbarBrand>
         );
     }
@@ -23,12 +30,12 @@ class Header extends Component {
             <Nav className="ml-auto" navbar>
                 <NavItem className="d-md-down-none">
                     <NavLink href="#">
-                        <i className="icon-bell"></i>
+                        <i className="fas fa-bell"></i>
                     </NavLink>
                 </NavItem>
                 <NavItem className="d-md-down-none">
                     <NavLink href="#">
-                        <i className="icon-options"></i>
+                        <i className="fas fa-ellipsis-v"></i>
                     </NavLink>
                 </NavItem>
             </Nav>
@@ -36,10 +43,10 @@ class Header extends Component {
     }
 
     render() {
-        const { children, ...attributes } = this.props;
+        const { name, img, ...attributes } = this.props;
         return (
             <Navbar {...attributes}>
-                {this.renderNavBrand(children)}
+                {this.renderNavBrand(name, img)}
                 <NavbarToggler/>
                 {this.renderNavMenu()}
             </Navbar>
@@ -49,9 +56,13 @@ class Header extends Component {
 
 Header.propTypes = {
     /**
-     * Array of React objects.
+     * Header brand name.
      */
-    children: PropTypes.array
+    name: PropTypes.string,
+    /**
+     * Header logo image file.
+     */
+    img: PropTypes.string
 };
 
 export default Header;
