@@ -1,30 +1,26 @@
 import React, { Component } from 'react';
-import {
-    BrowserRouter as Router,
-    Route,
-    Switch,
-} from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Loadable from 'react-loadable';
 
 // Styles
 import 'App.scss';
 
-// Pages
-import Signin from 'pages/Signin';
-import Signup from 'pages/Signup';
-import Landing from 'pages/Landing';
-import NotFound from 'pages/NotFound';
+const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
+
+// Load default page layout
+const Layout = Loadable({
+    loader: () => import('pages/layout'),
+    loading
+});
 
 class App extends Component {
     render() {
         return (
-            <Router>
+            <BrowserRouter>
                 <Switch>
-                    <Route exact path='/signin' component={Signin} />
-                    <Route exact path='/signup' component={Signup} />
-                    <Route exact path='/' component={Landing} />
-                    <Route name="404" component={NotFound} />
+                    <Route path='/' component={Layout} />
                 </Switch>
-            </Router>
+            </BrowserRouter>
         );
     }
 }

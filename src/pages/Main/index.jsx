@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { Jumbotron, Button } from 'reactstrap';
 
-// Pages
-import BasePage from 'pages/Base/Page';
-
-class Landing extends Component {
+class MainPage extends Component {
     render() {
         return (
-            <BasePage>
+            <div className="animated fadeIn">
                 <Jumbotron>
                     <h1 className="display-3">Hello, world!</h1>
                     <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
@@ -17,9 +14,9 @@ class Landing extends Component {
                         <Button color="primary">Learn More</Button>
                     </p>
                 </Jumbotron>
-            </BasePage>
+            </div>
         );
     }
 }
 
-export default Landing;
+export default MainPage;

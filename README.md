@@ -26,18 +26,22 @@ Ensure that you have the following software installed:
 Scriber welcomes contributions from anyone and everyone. Please see our [contributing guide](/CONTRIBUTING.md) for more info.
 
 # Codebase
-> Information describing the structure and design of the application source code
+> Information describing the structure and design of the entire application
 
 ## Structure
     .
     ├── ...
     ├── api                     # Backend Rest API server
-    ├── public                  # Web page assets (alternatively `public`)
-    ├── src                     # Source files (alternatively `src`)
+    ├── build                   # Production ready build of react app
+    ├── public                  # Web page assets
+    ├── src                     # Source files
     │   ├── components          # Re-usable react components
-    │   ├── pages               # Web app page views (alternatively `pages`)
+    │   ├── pages               # Web app page views
+    |   │   ├── ...
+    │   │   ├── layout.jsx      # Default page layout
+    |   |   └── routes.jsx      # Page navigation router file
     │   ├── scss                # SASS files
     │   ├── App.js              # Main application logic
-    │   └── App.scss            # Main application SASS
-    │   └── index.js            # Application Bootstrap file
+    │   ├── App.scss            # Main application SASS
+    |   └── index.js            # Application Bootstrap file
     └── ...
