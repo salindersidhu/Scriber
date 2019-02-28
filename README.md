@@ -41,6 +41,5 @@ Scriber welcomes contributions from anyone and everyone. Please see our [contrib
     |   |   └── routes.jsx      # Page navigation router file
     │   ├── scss                # SASS files
     │   ├── App.jsx             # Main application logic
-    │   ├── App.scss            # Main application SASS
     |   └── index.jsx           # Application Bootstrap file
     └── ...

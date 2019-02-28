@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
 // Styles
-import 'App.scss';
+import 'scss/style.scss';
 
 // Load default page layout
 const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;

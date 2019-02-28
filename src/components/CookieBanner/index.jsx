@@ -3,11 +3,11 @@ import CookieConsent from 'react-cookie-consent';
 import PropTypes from 'prop-types';
 
 const styles = {
-    cookieBanner: {
+    banner: {
         fontSize: '16px',
         background: 'black'
     },
-    cookieButton: {
+    button: {
         color: 'black',
         fontSize: '14px',
         fontWeight: 'bold',
@@ -22,8 +22,8 @@ class CookieBanner extends Component {
         const { buttonText, buttonClasses, bannerText } = this.props;
         return (
             <CookieConsent
-                style={styles.cookieBanner}
-                buttonStyle={styles.cookieButton}
+                style={styles.banner}
+                buttonStyle={styles.button}
                 buttonText={buttonText}
                 buttonClasses={buttonClasses}
             >

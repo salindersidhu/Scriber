@@ -1,14 +1,18 @@
+// CoreUI Icons Set
+@import '~@coreui/icons/css/coreui-icons.css';
+// Import Font Awesome Icons Set
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+// Import Simple Line Icons Set
+@import '~simple-line-icons/css/simple-line-icons.css';
+
+// Styles
 // If you want to override variables do it here
 @import "variables";
-
 // Import styles
 @import "~@coreui/coreui/scss/coreui.scss";
-
 // Temp fix for reactstrap
 @import '~@coreui/coreui/scss/_dropdown-menu-right.scss';
-
 // If you want to add something do it here
 @import "custom";
-
 // ie fixes
 @import "ie-fix";
