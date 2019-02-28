@@ -1,5 +1,4 @@
 const fs = require('fs');
-const path = require('path');
 const http = require('http');
 const https = require('https');
 const logger = require('morgan');
@@ -24,7 +23,6 @@ app.use(logger('dev'));
 app.use(bearerToken());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '../dist')));
 
 /* Configure API endpoints */
 routes(router);
