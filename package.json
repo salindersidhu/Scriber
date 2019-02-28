@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/salindersidhu/Scriber/issues"
   },
-  "homepage": "./",
+  "homepage": "https://github.com/salindersidhu/Scriber",
   "dependencies": {
     "@sendgrid/mail": "^6.3.1",
     "acorn": "^6.0.3",
