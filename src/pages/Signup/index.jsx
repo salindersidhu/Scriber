@@ -32,7 +32,7 @@ class SignupPage extends Component {
     render() {
         const { password } = this.state;
         return (
-            <div className="app flex-row align-items-center animated fadeIn">
+            <div className="app flex-row align-items-center">
                 <Container>
                     <Row className="justify-content-center">
                         <Col md="9" lg="7" xl="6">

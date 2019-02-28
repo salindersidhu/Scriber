@@ -18,7 +18,7 @@ import {
 class SigninPage extends Component {
     render() {
         return (
-            <div className="app flex-row align-items-center animated fadeIn">
+            <div className="app flex-row align-items-center">
                 <Container>
                     <Row className="justify-content-center">
                         <Col md="8">
