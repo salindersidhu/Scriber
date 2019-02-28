@@ -1,6 +1,5 @@
 import React, { Component, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Container } from 'reactstrap';
 
 // Components
 import Header from 'components/Header';
@@ -10,14 +9,7 @@ import CookieBanner from 'components/CookieBanner';
 import routes from 'pages/routes';
 
 class Layout extends Component {
-    loading () {
-        return (
-            <div className="animated fadeIn pt-1 text-center">
-                Loading...
-            </div>
-        );
-    }
-
+    loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>;
     render() {
         return (
             <div className="app">
@@ -34,28 +26,22 @@ class Layout extends Component {
                     expand="md"
                     light 
                 />
-                <div className="app-body">
-                    <main className="main">
-                        <Container fluid>
-                            <Suspense fallback={this.loading()}>
-                                <Switch>
-                                    {routes.map((route, idx) => {
-                                        return route.component ? (
-                                            <Route
-                                                key={idx}
-                                                path={route.path}
-                                                exact={route.exact}
-                                                render={props => (
-                                                    <route.component {...props} />
-                                                )}
-                                            />
-                                        ) : (null);
-                                    })}
-                                </Switch>
-                            </Suspense>
-                        </Container>
-                    </main>
-                </div>
+                <Suspense fallback={this.loading()}>
+                    <Switch>
+                        {routes.map((route, idx) => {
+                            return route.component ? (
+                                <Route
+                                    key={idx}
+                                    path={route.path}
+                                    exact={route.exact}
+                                    render={props => (
+                                        <route.component {...props} />
+                                    )}
+                                />
+                            ) : (null);
+                        })}
+                    </Switch>
+                </Suspense>
             </div>
         );
     }

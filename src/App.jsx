@@ -5,9 +5,8 @@ import Loadable from 'react-loadable';
 // Styles
 import 'App.scss';
 
-const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
-
 // Load default page layout
+const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
 const Layout = Loadable({
     loader: () => import('pages/layout'),
     loading

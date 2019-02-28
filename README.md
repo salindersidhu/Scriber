@@ -32,7 +32,6 @@ Scriber welcomes contributions from anyone and everyone. Please see our [contrib
     .
     ├── ...
     ├── api                     # Backend Rest API server
-    ├── build                   # Production ready build of react app
     ├── public                  # Web page assets
     ├── src                     # Source files
     │   ├── components          # Re-usable react components
@@ -41,7 +40,7 @@ Scriber welcomes contributions from anyone and everyone. Please see our [contrib
     │   │   ├── layout.jsx      # Default page layout
     |   |   └── routes.jsx      # Page navigation router file
     │   ├── scss                # SASS files
-    │   ├── App.js              # Main application logic
+    │   ├── App.jsx             # Main application logic
     │   ├── App.scss            # Main application SASS
-    |   └── index.js            # Application Bootstrap file
+    |   └── index.jsx           # Application Bootstrap file
     └── ...
