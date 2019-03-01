@@ -13,6 +13,9 @@ import {
     InputGroupText
 } from 'reactstrap';
 
+// Services
+import Services from 'pages/services';
+
 // Components
 import PasswordMeter from 'components/PasswordMeter';
 
@@ -20,17 +23,30 @@ class SignupPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            email: '',
+            username: '',
             password: ''
         };
         this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     onChange(e) {
+        e.preventDefault();
         this.setState({ [e.target.name]: e.target.value });
     }
 
+    onSubmit(e) {
+        e.preventDefault();
+        Services.CreateUser(this.state).then((response) => {
+            alert(response);
+        }).catch((error) => {
+            alert(error);
+        });
+    }
+
     render() {
-        const { password } = this.state;
+        const { username, email, password } = this.state;
         return (
             <div className="app flex-row align-items-center">
                 <Container>
@@ -38,16 +54,25 @@ class SignupPage extends Component {
                         <Col md="9" lg="7" xl="6">
                             <Card className="mx-4">
                                 <CardBody className="p-4">
-                                    <Form>
+                                    <Form onSubmit={this.onSubmit}>
                                         <h1>Sign Up</h1>
-                                        <p className="text-muted">Sign Up for your account</p>
+                                        <p className="text-muted">
+                                            Sign Up for your account
+                                        </p>
                                         <InputGroup className="mb-3">
                                             <InputGroupAddon addonType="prepend">
                                                 <InputGroupText>
                                                     <i className="fas fa-user-alt"></i>
                                                 </InputGroupText>
                                             </InputGroupAddon>
-                                            <Input type="text" placeholder="Username" autoComplete="username" />
+                                            <Input
+                                                name="username"
+                                                type="text"
+                                                placeholder="Username"
+                                                autoComplete="username"
+                                                value={username}
+                                                onChange={this.onChange}
+                                            />
                                         </InputGroup>
                                         <InputGroup className="mb-3">
                                             <InputGroupAddon addonType="prepend">
@@ -55,7 +80,14 @@ class SignupPage extends Component {
                                                     <i className="fas fa-envelope"></i>
                                                 </InputGroupText>
                                             </InputGroupAddon>
-                                            <Input type="text" placeholder="Email" autoComplete="email" />
+                                            <Input
+                                                name="email"
+                                                type="text"
+                                                placeholder="Email"
+                                                autoComplete="email"
+                                                value={email}
+                                                onChange={this.onChange}
+                                            />
                                         </InputGroup>
                                         <InputGroup className="mb-3">
                                             <InputGroupAddon addonType="prepend">
@@ -73,17 +105,17 @@ class SignupPage extends Component {
                                             />
                                         </InputGroup>
                                         <div className="mb-3">
-                                            <PasswordMeter password={password} />
+                                            <PasswordMeter
+                                                password={password}
+                                            />
                                         </div>
-                                        <InputGroup className="mb-4">
-                                            <InputGroupAddon addonType="prepend">
-                                                <InputGroupText>
-                                                    <i className="fas fa-key"></i>
-                                                </InputGroupText>
-                                            </InputGroupAddon>
-                                            <Input type="password" placeholder="Confirm Password" autoComplete="password" />
-                                        </InputGroup>
-                                        <Button color="primary" block>Sign Up</Button>
+                                        <Button
+                                            color="primary"
+                                            type="submit"
+                                            block
+                                        >
+                                            Sign Up
+                                        </Button>
                                     </Form>
                                 </CardBody>
                             </Card>

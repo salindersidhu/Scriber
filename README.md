@@ -36,10 +36,11 @@ Scriber welcomes contributions from anyone and everyone. Please see our [contrib
     ├── src                     # Source files
     │   ├── components          # Re-usable react components
     │   ├── pages               # Web app page views
-    |   │   ├── ...
+    │   │   ├── ...
     │   │   ├── layout.jsx      # Default page layout
-    |   |   └── routes.jsx      # Page navigation router file
+    │   │   ├── routes.jsx      # Page navigation router file
+    │   │   └── services.jsx    # API service call functions
     │   ├── scss                # SASS files
     │   ├── App.jsx             # Main application logic
-    |   └── index.jsx           # Application Bootstrap file
+    │   └── index.jsx           # Application Bootstrap file
     └── ...

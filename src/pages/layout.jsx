@@ -6,7 +6,7 @@ import Header from 'components/Header';
 import CookieBanner from 'components/CookieBanner';
 
 // Routes
-import routes from 'pages/routes';
+import Routes from 'pages/routes';
 
 class Layout extends Component {
     loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>;
@@ -28,7 +28,7 @@ class Layout extends Component {
                 />
                 <Suspense fallback={this.loading()}>
                     <Switch>
-                        {routes.map((route, idx) => {
+                        {Routes.map((route, idx) => {
                             return route.component ? (
                                 <Route
                                     key={idx}

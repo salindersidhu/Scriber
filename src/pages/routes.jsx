@@ -7,11 +7,11 @@ const SignupPage = React.lazy(() => import('pages/Signup'));
 const NotFoundPage = React.lazy(() => import('pages/NotFound'));
 
 // Routes
-const routes = [
+const Routes = [
     { path: '/', exact: true, component: MainPage },
     { path: '/signin', exact: true, component: SigninPage },
     { path: '/signup', exact: true, component: SignupPage },
     { path: '/*', component: NotFoundPage }
 ];
 
-export default routes;
+export default Routes;
