@@ -6,10 +6,10 @@ const users = require('../models/users');
 
 module.exports = {
     validateCreate: validator.checkSchema({
-        name: {
+        username: {
             matches: {
                 options: '^(?=.*[a-zA-Z])(?=.{3,})',
-                errorMessage: 'Name should be at least 3 chars long'
+                errorMessage: 'Username should be at least 3 chars long'
             }
         },
         email: {
@@ -42,7 +42,7 @@ module.exports = {
             }
             // Create a new User
             users.create({
-                name: req.body.name,
+                username: req.body.username,
                 email: req.body.email,
                 password: req.body.password,
             }, (createUserError, newUser) => {

@@ -11,14 +11,14 @@ module.exports = (router) => {
          * @apiGroup Users
          * @apiPermission none
          * 
-         * @apiParam {String} name The user account's name.
+         * @apiParam {String} username The user account's name.
          * @apiParam {String} email The user account's email.
          * @apiParam {String} password The user account's password. Must have a
          * ZXCVBN password strength of 3 or higher.
          * 
          * @apiParamExample {json} Input
          *  {
-         *      "name":     "John",
+         *      "username": "John",
          *      "email":    "john@gmail.com",
          *      "password": "helloWorld123ABC"
          *  }

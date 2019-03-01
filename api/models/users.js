@@ -7,7 +7,7 @@ const SALT_FACTOR = 12;
  * Define a mongoose schema representing users.
  */
 var schema = new mongoose.Schema({
-    name: {
+    username: {
         required: true,
         type: String
     },
