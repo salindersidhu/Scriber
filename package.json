@@ -33,6 +33,7 @@
     "apidoc": "^0.17.6",
     "async": "^2.6.1",
     "bcrypt-nodejs": "0.0.3",
+    "cors": "^2.8.5",
     "email-templates": "^5.0.4",
     "express": "^4.16.4",
     "express-bearer-token": "^2.2.0",

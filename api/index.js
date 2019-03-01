@@ -1,4 +1,5 @@
 const fs = require('fs');
+const cors = require('cors');
 const http = require('http');
 const https = require('https');
 const logger = require('morgan');
@@ -19,6 +20,7 @@ mongoose.connection.on('error', console.error.bind(console, 'mongoose error:'));
 app.set('port', config.port);
 
 /* Configure middleware */
+app.use(cors());
 app.use(logger('dev'));
 app.use(bearerToken());
 app.use(express.json());
