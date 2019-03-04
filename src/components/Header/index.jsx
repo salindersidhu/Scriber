@@ -15,7 +15,7 @@ class Header extends Component {
             <NavbarBrand href="/">
                 <img
                     src={img}
-                    alt={name}
+                    alt=""
                     className="d-inline-block align-top"
                     height="26"
                     width="26"

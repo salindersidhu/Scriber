@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Container, Row, Jumbotron, Button } from 'reactstrap';
 
 class MainPage extends Component {
@@ -9,19 +10,29 @@ class MainPage extends Component {
                     <Row className="justify-content-center">
                         <Jumbotron>
                             <h1 className="display-3">
-                                Hello, world!
+                                <img 
+                                    src="./scriber.svg"
+                                    alt=""
+                                    height="80"
+                                    className="align-bottom mr-2 pt-2 pb-2"
+                                />
+                                <b>
+                                    Scriber
+                                </b>
                             </h1>
                             <p className="lead">
-                                This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.
+                                Welcome to your cloud based AI assisted digital audio transcription service.
                             </p>
                             <hr className="my-2" />
                             <p>
-                                It uses utility classes for typography and spacing to space content out within the larger container.
+                                Explore the possibilities, try Scriber for free now!
                             </p>
                             <p className="lead">
-                                <Button color="primary">
-                                    Learn More
-                                </Button>
+                                <Link to="/signin">
+                                    <Button color="primary">
+                                        Get Started
+                                    </Button>
+                                </Link>
                             </p>
                         </Jumbotron>
                     </Row>
