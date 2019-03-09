@@ -17,7 +17,7 @@ module.exports = {
         },
         password: {
             custom: {
-                options: v => zxcvbn(v).score >= 3,
+                options: v => zxcvbn(v).score == 4,
                 errorMessage: 'Password zxcvbn score should be at least 3'
             }
         }
