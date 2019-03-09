@@ -38,8 +38,7 @@ class Message extends Component {
 }
 
 Message.defaultProps = {
-    backdrop: true,
-    className: 'mr-1'
+    backdrop: true
 };
 
 Message.propTypes = {
