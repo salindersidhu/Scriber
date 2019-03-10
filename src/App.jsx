@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import Loadable from 'react-loadable';
+
+// Redux store
+import store from 'store';
 
 // Styles
 import 'scss/style.scss';
@@ -15,11 +19,13 @@ const Layout = Loadable({
 class App extends Component {
     render() {
         return (
-            <BrowserRouter>
-                <Switch>
-                    <Route path='/' component={Layout} />
-                </Switch>
-            </BrowserRouter>
+            <Provider store={store}>
+                <BrowserRouter>
+                    <Switch>
+                        <Route path='/' component={Layout} />
+                    </Switch>
+                </BrowserRouter>
+            </Provider>
         );
     }
 }
