@@ -27,7 +27,7 @@ Ensure that you have the following software installed:
 Scriber welcomes contributions from anyone and everyone. Please see our [contributing guide](/CONTRIBUTING.md) for more info.
 
 ## Redux DevTools Extension
-If you want to use the [Redux DevTool Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) for Google Chrome, modify the following section of code in [store.js](/src/store.js).
+If you want to use the [Redux DevTool Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) for Google Chrome, modify the following section of code in [store.js](/src/redux/store.js).
 
 ```diff
 const store = createStore(
