@@ -6,6 +6,7 @@
 * [Development](#development)
     * [Requirements](#requirements)
     * [Contributing](#contributing)
+    * [Redux DevTools Extension](#redux-devtools-extension)
 * [Codebase](#codebase)
     * [Structure](#structure)
 
@@ -25,6 +26,21 @@ Ensure that you have the following software installed:
 ## Contributing
 Scriber welcomes contributions from anyone and everyone. Please see our [contributing guide](/CONTRIBUTING.md) for more info.
 
+## Redux DevTools Extension
+If you want to use the Redux [DevTool Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) for Google Chrome, modifiy the following section of code in [store.js](/src/store.js).
+
+```diff
+const store = createStore(
+    rootReducer,
+    initialState,
+    compose(
+-        applyMiddleware(...middlware)
++        applyMiddleware(...middlware),
++        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
+);
+```
+
 # Codebase
 > Information describing the structure and design of the entire application
 
@@ -40,7 +56,12 @@ Scriber welcomes contributions from anyone and everyone. Please see our [contrib
     │   │   ├── layout.jsx      # Default page layout
     │   │   ├── routes.jsx      # Page navigation router file
     │   │   └── services.jsx    # API service call functions
+    │   ├── redux               # Redux components
+    │   │   ├── actions         # Redux actions
+    │   │   ├── reducers        # Redux application reducers
+    │   │   └── store.js        # Redux store
     │   ├── scss                # SASS files
     │   ├── App.jsx             # Main application logic
-    │   └── index.jsx           # Application Bootstrap file
+    │   ├── index.js            # Application Bootstrap
+    │   └── serviceWorker.js    # Service worker file
     └── ...

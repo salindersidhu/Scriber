@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import Loadable from 'react-loadable';
 
 // Redux store
-import store from 'store';
+import store from 'redux/store';
 
 // Styles
 import 'scss/style.scss';

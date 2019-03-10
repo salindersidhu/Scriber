@@ -16,7 +16,7 @@ import PropTypes from 'prop-types';
 
 // Redux
 import { connect } from 'react-redux';
-import { showError, showMessage } from 'actions/message';
+import { showError, showMessage } from 'redux/actions/message';
 
 // Services
 import Services from 'pages/services';

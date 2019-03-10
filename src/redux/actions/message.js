@@ -1,4 +1,4 @@
-import { NEW_MESSAGE, TOGGLE_MESSAGE } from 'actions/types';
+import { NEW_MESSAGE, TOGGLE_MESSAGE } from 'redux/actions/types';
 
 export const showError = (text) => dispatch => {
     dispatch({

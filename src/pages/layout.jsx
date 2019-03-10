@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 // Redux
 import { connect } from 'react-redux';
-import { toggleMessage } from 'actions/message';
+import { toggleMessage } from 'redux/actions/message';
 
 // Components
 import Header from 'components/Header';
