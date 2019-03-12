@@ -52,7 +52,7 @@ class SignupPage extends Component {
                         `An account with that email already exists! Please try
                         a different email.`
                     );
-                } else if (error.response.status === 422) {
+                } else {
                     this.props.showError(
                         'Your account could not be created, please try again!'
                     );
