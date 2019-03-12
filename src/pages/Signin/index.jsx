@@ -14,9 +14,57 @@ import {
     InputGroupText,
     Row
 } from 'reactstrap';
+import PropTypes from 'prop-types';
+
+// Redux
+import { connect } from 'react-redux';
+import { showError, showMessage } from 'redux/actions/message';
+
+// Services
+import Services from 'pages/services';
 
 class SigninPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: '',
+        };
+        this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    onChange(e) {
+        e.preventDefault();
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
+    onSubmit(e) {
+        e.preventDefault();
+        Services.CreateSession(this.state).then((response) => {
+            this.props.showMessage(`TOKEN: ${response.data.token}`);
+        }).catch((error) => {
+            if (error.response) {
+                if (error.response.status === 400) {
+                    this.props.showError(
+                        'Bad email and password combination, please try again!'
+                    );
+                } else {
+                    this.props.showError(
+                        'Could not sign in, please try again!'
+                    );
+                }
+            } else {
+                this.props.showError(
+                    `Could not communicate with the server! Please see the
+                    application status page and check your network settings.`
+                );
+            }
+        });
+    }
+
     render() {
+        const { email, password } = this.state;
         return (
             <div className="app flex-row align-items-center">
                 <Container>
@@ -25,16 +73,25 @@ class SigninPage extends Component {
                             <CardGroup>
                                 <Card className="p-4">
                                     <CardBody>
-                                        <Form>
+                                        <Form onSubmit={this.onSubmit}>
                                             <h1>Sign In</h1>
-                                            <p className="text-muted">Sign In to your account</p>
+                                            <p className="text-muted">
+                                                Sign In to your account
+                                            </p>
                                             <InputGroup className="mb-3">
                                                 <InputGroupAddon addonType="prepend">
                                                     <InputGroupText>
-                                                        <i className="fas fa-user-alt"></i>
+                                                        <i className="fas fa-envelope"></i>
                                                     </InputGroupText>
                                                 </InputGroupAddon>
-                                                <Input type="text" placeholder="Username" autoComplete="username" />
+                                                <Input
+                                                    name="email"
+                                                    type="text"
+                                                    placeholder="Email"
+                                                    autoComplete="email"
+                                                    value={email}
+                                                    onChange={this.onChange}
+                                                />
                                             </InputGroup>
                                             <InputGroup className="mb-4">
                                                 <InputGroupAddon addonType="prepend">
@@ -42,15 +99,32 @@ class SigninPage extends Component {
                                                         <i className="fas fa-key"></i>
                                                     </InputGroupText>
                                                 </InputGroupAddon>
-                                                <Input type="password" placeholder="Password" autoComplete="password" />
+                                                <Input
+                                                    name="password"
+                                                    type="password"
+                                                    placeholder="Password"
+                                                    autoComplete="password"
+                                                    value={password}
+                                                    onChange={this.onChange}
+                                                />
                                             </InputGroup>
                                             <Row>
                                                 <Col xs="6">
-                                                    <Button color="primary" block>Sign In</Button>
+                                                    <Button
+                                                        color="primary"
+                                                        block
+                                                    >
+                                                        Sign In
+                                                    </Button>
                                                 </Col>
                                                 <Col xs="6" className="text-right">
                                                     <Link to="/forgot-password">
-                                                        <Button color="link" className="px-0">Forgot password?</Button>
+                                                        <Button
+                                                            color="link"
+                                                            className="px-0"
+                                                        >
+                                                            Forgot password?
+                                                        </Button>
                                                     </Link>
                                                 </Col>
                                             </Row>
@@ -63,7 +137,14 @@ class SigninPage extends Component {
                                             <h2>Sign Up</h2>
                                             <p>Sign up now and create your own account to start transcribing audio with Scriber.</p>
                                             <Link to="/signup">
-                                                <Button color="primary" className="mt-3" active tabIndex={-1}>Sign Up Now!</Button>
+                                                <Button
+                                                    color="primary"
+                                                    className="mt-3"
+                                                    tabIndex={-1}
+                                                    active
+                                                >
+                                                    Sign Up Now!
+                                                </Button>
                                             </Link>
                                         </div>
                                     </CardBody>
@@ -77,4 +158,9 @@ class SigninPage extends Component {
     }
 }
 
-export default SigninPage;
+SigninPage.propTypes = {
+    showError: PropTypes.func.isRequired,
+    showMessage: PropTypes.func.isRequired
+};
+
+export default connect(null, { showError, showMessage })(SigninPage);

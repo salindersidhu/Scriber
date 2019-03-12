@@ -26,6 +26,7 @@ class Layout extends Component {
                     color={message.color}
                     state={message.isActive}
                     toggle={toggleMessage}
+                    className='word-wrap-break'
                 />
                 <CookieBanner
                     buttonText="Got it!"
