@@ -23,7 +23,7 @@ class Message extends Component {
             <Modal
                 isOpen={state}
                 toggle={toggle}
-                className={'modal-' + color + ' ' + className}
+                className={`modal-${color} ${className}`}
                 backdrop={backdrop}
             >
                 <ModalHeader toggle={toggle}>{title}</ModalHeader>

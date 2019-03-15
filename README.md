@@ -6,7 +6,6 @@
 * [Development](#development)
     * [Requirements](#requirements)
     * [Contributing](#contributing)
-    * [Redux DevTools Extension](#redux-devtools-extension)
 * [Codebase](#codebase)
     * [Structure](#structure)
 
@@ -23,23 +22,10 @@ Ensure that you have the following software installed:
 - **Node**
     - Version 10.15.0+
 
+*If you're using Google Chrome it's recommended to get the [Redux DevTool Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)*
+
 ## Contributing
 Scriber welcomes contributions from anyone and everyone. Please see our [contributing guide](/CONTRIBUTING.md) for more info.
-
-## Redux DevTools Extension
-If you want to use the [Redux DevTool Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) for Google Chrome, modify the following section of code in [store.js](/src/redux/store.js).
-
-```diff
-const store = createStore(
-    rootReducer,
-    initialState,
-    compose(
--        applyMiddleware(...middlware)
-+        applyMiddleware(...middlware),
-+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    )
-);
-```
 
 # Codebase
 > Information describing the structure and design of the entire application
@@ -58,7 +44,11 @@ const store = createStore(
     │   │   └── services.jsx    # API service call functions
     │   ├── redux               # Redux components
     │   │   ├── actions         # Redux actions
+    │   │   │   ├── ...
+    │   │   │   └── types.js    # Action type definitions
     │   │   ├── reducers        # Redux application reducers
+    │   │   │   ├── ...
+    │   │   │   └── index.js    # Root reducer file
     │   │   └── store.js        # Redux store
     │   ├── scss                # SASS files
     │   ├── App.jsx             # Main application logic

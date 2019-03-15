@@ -7,7 +7,7 @@ const Services = {
     CreateUser: (data) => {
         return axios.post(apiBaseUrl + '/users', data);
     },
-    CreateUserSession: (data) => {
+    CreateSession: (data) => {
         return axios.post(apiBaseUrl + '/sessions', data);
     }
 };
