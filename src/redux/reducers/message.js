@@ -7,7 +7,7 @@ const initialState = {
     isActive: false
 };
 
-export default function(state = initialState, action) {
+export default function(state=initialState, action) {
     switch(action.type) {
     // Show a new message modal with custom text, title and color.
     case NEW_MESSAGE:
