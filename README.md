@@ -2,15 +2,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](/LICENSE.md)
 
 # Table of Contents
-* [Overview](#overview)
 * [Development](#development)
     * [Prerequisites](#Prerequisites)
     * [Running](#running)
     * [Contributing](#contributing)
 * [Codebase](#codebase)
     * [Structure](#structure)
-
-# Overview
 
 # Development
 > Information describing how to install and configure all the required tools to begin development.
@@ -26,7 +23,7 @@ Ensure that you have the following installed and configured any environment vari
 *If you're using Google Chrome it is recommended to get the [Redux DevTool Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd).*
 
 ## Running
-Run the following command inside your cloned repo to install the required packages:
+Run the following command to install all the required packages:
 ```bash
 npm install
 ```
@@ -36,12 +33,12 @@ Start the API server with live reload using the following command:
 npm run api
 ```
 
-***Optional:*** Build the HTML API documentation using the following command:*
+***Optional:*** Build the HTML API documentation using the following command:
 ```bash
 npm run api:docs
 ```
 
-Start the Web App server with live reload using the following command:
+Start the React application server with live reload using the following command:
 ```bash
 npm start
 ```
@@ -55,7 +52,7 @@ Scriber welcomes contributions from anyone and everyone. Please see our [contrib
 ## Structure
     .
     ├── ...
-    ├── public                  # Web application assets
+    ├── public                  # React application assets
     ├── api
     │   ├── controllers         # REST API controllers
     │   ├── models              # REST API DB models
@@ -67,7 +64,7 @@ Scriber welcomes contributions from anyone and everyone. Please see our [contrib
     │   └── utils.js            # Common utility functions
     ├── src
     │   ├── components          # Re-usable react components
-    │   ├── pages               # Web app page views
+    │   ├── pages               # React application page views
     │   │   ├── ...
     │   │   ├── layout.jsx      # Default page layout
     │   │   ├── routes.jsx      # Page navigation router file
@@ -81,7 +78,7 @@ Scriber welcomes contributions from anyone and everyone. Please see our [contrib
     │   │   │   └── index.js    # Root reducer file
     │   │   └── store.js        # Redux store
     │   ├── scss                # SASS files
-    │   ├── App.jsx             # Main web application logic
+    │   ├── App.jsx             # React application logic
     │   ├── index.js            # Application bootstrap
     │   └── serviceWorker.js
     └── ...
