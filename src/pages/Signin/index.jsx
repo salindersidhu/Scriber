@@ -45,23 +45,26 @@ class SigninPage extends Component {
         // Obtain functions from props
         const { newAuth, showMessage, showError } = this.props;
         // Call Signin service to login
-        Services.userSignin(this.state).then((response) => {
+        Services.userSignin(this.state).then(response => {
             newAuth(response.data.token);
             showMessage('Signin Successful!');
-        }).catch((error) => {
-            if (error.response) {
-                if (error.response.status === 400) {
-                    showError(
-                        'Bad email and password combination, please try again!'
-                    );
-                } else {
-                    showError('Could not sign in, please try again!');
-                }
-            } else {
+        }).catch(error => {
+            // Display error message based on response error
+            switch(error) {
+            case 400:
+                showError(
+                    'Bad email and password combination, please try again'
+                );
+                break;
+            case 422:
+                showError('Could not sign in, please try again!');
+                break;
+            default:
                 showError(
                     `Could not communicate with the server! Please see the
                     application status page and check your network settings.`
                 );
+                break;
             }
         });
     }
