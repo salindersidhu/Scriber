@@ -43,22 +43,25 @@ class SignupPage extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        Services.CreateUser(this.state).then(() => {
-            this.props.showMessage('Your account was created successfully!');
+        // Obtain functions from props
+        const { showMessage, showError } = this.props;
+        // Call Signup service to create a new account
+        Services.userSignup(this.state).then(() => {
+            showMessage('Signup successfully!');
         }).catch((error) => {
             if (error.response) {
                 if (error.response.status === 400) {
-                    this.props.showError(
+                    showError(
                         `An account with that email already exists! Please try
                         a different email.`
                     );
                 } else {
-                    this.props.showError(
+                    showError(
                         'Your account could not be created, please try again!'
                     );
                 }
             } else {
-                this.props.showError(
+                showError(
                     `Could not communicate with the server! Please see the
                     application status page and check your network settings.`
                 );

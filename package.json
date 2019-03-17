@@ -62,7 +62,6 @@
     "jest": "23.6.0",
     "jest-environment-node": "^24.5.0",
     "jquery": "^3.3.1",
-    "js-cookie": "^2.2.0",
     "mongodb-memory-server": "^4.2.1",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.9",
@@ -79,7 +78,6 @@
     "react-test-renderer": "^16.8.4",
     "reactstrap": "^7.1.0",
     "redux": "^4.0.1",
-    "redux-cookie": "^0.5.9",
     "redux-thunk": "^2.3.0",
     "simple-line-icons": "^2.4.1",
     "typescript": "^3.3.3333"

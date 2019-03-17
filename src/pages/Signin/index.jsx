@@ -18,6 +18,7 @@ import PropTypes from 'prop-types';
 
 // Redux
 import { connect } from 'react-redux';
+import { newAuth } from 'redux/actions/auth';
 import { showError, showMessage } from 'redux/actions/message';
 
 // Services
@@ -41,21 +42,23 @@ class SigninPage extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        Services.CreateSession(this.state).then((response) => {
-            this.props.showMessage(`TOKEN: ${response.data.token}`);
+        // Obtain functions from props
+        const { newAuth, showMessage, showError } = this.props;
+        // Call Signin service to login
+        Services.userSignin(this.state).then((response) => {
+            newAuth(response.data.token);
+            showMessage('Signin Successful!');
         }).catch((error) => {
             if (error.response) {
                 if (error.response.status === 400) {
-                    this.props.showError(
+                    showError(
                         'Bad email and password combination, please try again!'
                     );
                 } else {
-                    this.props.showError(
-                        'Could not sign in, please try again!'
-                    );
+                    showError('Could not sign in, please try again!');
                 }
             } else {
-                this.props.showError(
+                showError(
                     `Could not communicate with the server! Please see the
                     application status page and check your network settings.`
                 );
@@ -159,8 +162,9 @@ class SigninPage extends Component {
 }
 
 SigninPage.propTypes = {
+    newAuth: PropTypes.func.isRequired,
     showError: PropTypes.func.isRequired,
     showMessage: PropTypes.func.isRequired
 };
 
-export default connect(null, { showError, showMessage })(SigninPage);
+export default connect(null, { newAuth, showError, showMessage })(SigninPage);

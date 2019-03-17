@@ -4,10 +4,10 @@ const apiBaseUrl = 'http://localhost:8000/api/v1';
 
 // API service calls
 const Services = {
-    CreateUser: (data) => {
+    userSignup: (data) => {
         return axios.post(apiBaseUrl + '/users', data);
     },
-    CreateSession: (data) => {
+    userSignin: (data) => {
         return axios.post(apiBaseUrl + '/sessions', data);
     }
 };
