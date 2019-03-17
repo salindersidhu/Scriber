@@ -5,6 +5,7 @@
 * [Development](#development)
     * [Prerequisites](#Prerequisites)
     * [Running](#running)
+    * [Testing](#testing)
     * [Contributing](#contributing)
 * [Codebase](#codebase)
     * [Structure](#structure)
@@ -43,6 +44,12 @@ Start the React application server with live reload using the following command:
 npm start
 ```
 
+## Testing
+Run Jest tests for the API server using the following command:
+```bash
+npm run api:tests
+```
+
 ## Contributing
 Scriber welcomes contributions from anyone and everyone. Please see our [contributing guide](/CONTRIBUTING.md) for more info.
 
@@ -52,33 +59,39 @@ Scriber welcomes contributions from anyone and everyone. Please see our [contrib
 ## Structure
     .
     ├── ...
-    ├── public                  # React application assets
+    ├── public                      # React application assets
     ├── api
-    │   ├── controllers         # REST API controllers
-    │   ├── models              # REST API DB models
-    │   ├── routes              # REST API HTTP routes
-    │   ├── docs                # REST API generated docs
-    │   ├── config.js           # Server config file handler
-    │   ├── config.json         # Server config file for all environments 
-    │   ├── index.js            # Main server logic
-    │   └── utils.js            # Common utility functions
+    │   ├── controllers             # REST API controllers
+    │   ├── models                  # REST API DB models
+    │   ├── routes                  # REST API HTTP routes
+    │   ├── docs                    # REST API generated docs
+    │   ├── tests
+    │   │   ├── mongoEnv.js         # Mongodb environment for jest
+    │   │   ├── setup.js            # Global test suite setup
+    │   │   ├── teardown.js         # Global test suite teardown
+    │   │   ├── config.json         # Jest config file
+    │   │   └── ...
+    │   ├── config.js               # Server config file handler
+    │   ├── config.json             # Server config file for all environments
+    │   ├── index.js                # Main server logic
+    │   └── utils.js                # Common utility functions
     ├── src
-    │   ├── components          # Re-usable react components
-    │   ├── pages               # React application page views
+    │   ├── components              # Re-usable react components
+    │   ├── pages                   # React application page views
     │   │   ├── ...
-    │   │   ├── layout.jsx      # Default page layout
-    │   │   ├── routes.jsx      # Page navigation router file
-    │   │   └── services.jsx    # API service call functions
-    │   ├── redux               # Redux components
-    │   │   ├── actions         # Redux actions
+    │   │   ├── layout.jsx          # Default page layout
+    │   │   ├── routes.jsx          # Page navigation router file
+    │   │   └── services.jsx        # API service call functions
+    │   ├── redux                   # Redux components
+    │   │   ├── actions             # Redux actions
     │   │   │   ├── ...
-    │   │   │   └── types.js    # Redux action type definitions
-    │   │   ├── reducers        # Redux reducers
+    │   │   │   └── types.js        # Redux action type definitions
+    │   │   ├── reducers            # Redux reducers
     │   │   │   ├── ...
-    │   │   │   └── index.js    # Root reducer file
-    │   │   └── store.js        # Redux store
-    │   ├── scss                # SASS files
-    │   ├── App.jsx             # React application logic
-    │   ├── index.js            # Application bootstrap
+    │   │   │   └── index.js        # Root reducer file
+    │   │   └── store.js            # Redux store
+    │   ├── scss                    # SASS files
+    │   ├── App.jsx                 # React application logic
+    │   ├── index.js                # Application bootstrap
     │   └── serviceWorker.js
     └── ...
