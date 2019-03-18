@@ -22,7 +22,7 @@ import { newAuth } from 'redux/actions/auth';
 import { showError, showMessage } from 'redux/actions/message';
 
 // Services
-import Services from 'pages/services';
+import { Signin } from 'services';
 
 class SigninPage extends Component {
     constructor(props) {
@@ -45,7 +45,7 @@ class SigninPage extends Component {
         // Obtain functions from props
         const { newAuth, showMessage, showError } = this.props;
         // Call Signin service to login
-        Services.userSignin(this.state).then(response => {
+        Signin(this.state).then(response => {
             newAuth(response.data.token);
             showMessage('Signin Successful!');
         }).catch(error => {

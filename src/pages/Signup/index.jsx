@@ -19,7 +19,7 @@ import { connect } from 'react-redux';
 import { showError, showMessage } from 'redux/actions/message';
 
 // Services
-import Services from 'pages/services';
+import { Signup } from 'services';
 
 // Components
 import PasswordMeter from 'components/PasswordMeter';
@@ -46,7 +46,7 @@ class SignupPage extends Component {
         // Obtain functions from props
         const { showMessage, showError } = this.props;
         // Call Signup service to create a new account
-        Services.userSignup(this.state).then(() => {
+        Signup(this.state).then(() => {
             showMessage('Signup Successful!');
         }).catch(error => {
             // Display error message based on response error

@@ -77,11 +77,12 @@ Scriber welcomes contributions from anyone and everyone. Please see our [contrib
     │   └── utils.js                # Common utility functions
     ├── src
     │   ├── components              # Re-usable react components
+    │   ├── services
+    │   │   └── index.js            # REST API service call functions
     │   ├── pages                   # React application page views
     │   │   ├── ...
     │   │   ├── layout.jsx          # Default page layout
-    │   │   ├── routes.jsx          # Page navigation router file
-    │   │   └── services.jsx        # API service call functions
+    │   │   └── routes.jsx          # Page navigation router file
     │   ├── redux                   # Redux components
     │   │   ├── actions             # Redux actions
     │   │   │   ├── ...
