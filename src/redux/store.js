@@ -7,20 +7,18 @@ import rootReducer from 'redux/reducers';
 // Initial State
 const initialState = {};
 
-// Middleware
-const middlware = [thunk];
-
-// Store
+// Enhancers
 const composeEnhancers =
     typeof window === 'object' && 
         window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__  ?
         window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
 
+// Store
 const store = createStore(
     rootReducer,
     initialState,
     composeEnhancers(
-        applyMiddleware(...middlware)
+        applyMiddleware(thunk)
     )
 );
 
