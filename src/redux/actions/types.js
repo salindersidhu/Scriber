@@ -6,5 +6,5 @@ export const TOGGLE_MESSAGE = 'TOGGLE_MESSAGE';
 /**
  * Authentication action types.
  */
-export const NEW_AUTH = 'NEW_AUTH';
-export const DELETE_AUTH = 'DELETE_AUTH';
+export const SET_AUTH = 'SET_AUTH';
+export const UNSET_AUTH = 'UNSET_AUTH';

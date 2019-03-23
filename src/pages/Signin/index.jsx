@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 
 // Redux
 import { connect } from 'react-redux';
-import { newAuth } from 'redux/actions/auth';
+import { setAuth } from 'redux/actions/auth';
 import { showError, showMessage } from 'redux/actions/message';
 
 // Services
@@ -43,10 +43,10 @@ class SigninPage extends Component {
     onSubmit(e) {
         e.preventDefault();
         // Obtain functions from props
-        const { newAuth, showMessage, showError } = this.props;
+        const { setAuth, showMessage, showError } = this.props;
         // Call Signin service to login
         Signin(this.state).then(response => {
-            newAuth(response.data.token);
+            setAuth(response.data.token);
             showMessage('Signin Successful!');
         }).catch(error => {
             // Display error message based on response error
@@ -165,9 +165,9 @@ class SigninPage extends Component {
 }
 
 SigninPage.propTypes = {
-    newAuth: PropTypes.func.isRequired,
+    setAuth: PropTypes.func.isRequired,
     showError: PropTypes.func.isRequired,
     showMessage: PropTypes.func.isRequired
 };
 
-export default connect(null, { newAuth, showError, showMessage })(SigninPage);
+export default connect(null, { setAuth, showError, showMessage })(SigninPage);

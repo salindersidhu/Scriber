@@ -1,21 +1,16 @@
-import { NEW_AUTH, DELETE_AUTH } from 'redux/actions/types';
+import { SET_AUTH, UNSET_AUTH } from 'redux/actions/types';
 
-export const newAuth = (data) => dispatch => {
+export const setAuth = (data) => dispatch => {
     dispatch({
-        type: NEW_AUTH,
+        type: SET_AUTH,
         payload: {
-            isAuth: true,
             token: data
         }
     });
 };
 
-export const deleteAuth = () => dispatch => {
+export const unsetAuth = () => dispatch => {
     dispatch({
-        type: DELETE_AUTH,
-        payload: {
-            isAuth: false,
-            token: null
-        }
+        type: UNSET_AUTH
     });
 };
