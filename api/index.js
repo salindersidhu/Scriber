@@ -11,9 +11,6 @@ const config = require('./config');
 mongoose.connect(config.database.uri, { useNewUrlParser: true });
 mongoose.connection.on('error', console.error.bind(console, 'mongoose error:'));
 
-/* Set keyword variables */
-app.set('port', config.port);
-
 /* Create http or https server based on environment */
 const server = process.env.NODE_ENV === 'production' ?
     https.createServer({
@@ -36,7 +33,7 @@ function onError(error) {
     if (error.syscall !== 'listen') {
         throw error;
     }
-    const port = app.get('port');
+    const port = config.port;
     const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
     /* Handle specific listen errors with friendly messages */
     switch (error.code) {
