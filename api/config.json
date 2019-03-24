@@ -1,4 +1,9 @@
 {
+	"test": {
+		"session": {
+			"lifespan": 36000000
+		}
+	},
 	"development": {
 		"port": 8000,
 		"database": {
