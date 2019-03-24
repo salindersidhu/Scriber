@@ -70,10 +70,12 @@ Scriber welcomes contributions from anyone and everyone. Please see our [contrib
     │   │   ├── setup.js            # Global test suite setup
     │   │   ├── teardown.js         # Global test suite teardown
     │   │   ├── config.json         # Jest config file
-    │   │   └── ...
+    │   │   └── units               # Unit test suites
+    │   │       └── ...
     │   ├── config.js               # Server config file handler
     │   ├── config.json             # Server config file for all environments
-    │   ├── index.js                # Main server logic
+    │   ├── app.js                  # Main server logic
+    │   ├── index.js                # Server bootstrap
     │   └── utils.js                # Common utility functions
     ├── src
     │   ├── components              # Re-usable react components

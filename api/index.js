@@ -1,15 +1,10 @@
 const fs = require('fs');
-const cors = require('cors');
 const http = require('http');
 const https = require('https');
-const logger = require('morgan');
-const express = require('express');
 const mongoose = require('mongoose');
-const bearerToken = require('express-bearer-token');
 
-const app = express();
-const router = express.Router();
-const routes = require('./routes');
+/* Import API server app */
+const app = require('./app');
 const config = require('./config');
 
 /* Configure Database connection */
@@ -18,17 +13,6 @@ mongoose.connection.on('error', console.error.bind(console, 'mongoose error:'));
 
 /* Set keyword variables */
 app.set('port', config.port);
-
-/* Configure middleware */
-app.use(cors());
-app.use(logger('dev'));
-app.use(bearerToken());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-/* Configure API endpoints */
-routes(router);
-app.use('/api/v1', router);
 
 /* Create http or https server based on environment */
 const server = process.env.NODE_ENV === 'production' ?
