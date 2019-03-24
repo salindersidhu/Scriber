@@ -1,7 +1,7 @@
+const url = require('url');
 const njwt = require('njwt');
 const validator = require('express-validator/check');
 
-const utils = require('../utils');
 const config = require('../config');
 const logs = require('../models/logs');
 const users = require('../models/users');
@@ -77,9 +77,15 @@ module.exports = {
                 const token = njwt.create({
                     sub: user._id,
                     scope: 'default',
-                    iss: utils.ServerURL(req)
+                    iss: url.format({
+                        protocol: req.protocol,
+                        host: req.get('host'),
+                        pathname: ''
+                    })
                 }, config.session.key);
-                token.setExpiration(utils.TotalTime(config.session.lifespan));
+                token.setExpiration(
+                    new Date().getTime() + config.session.lifespan
+                );
                 // Log event
                 logs.create({
                     name: 'USER.LOGIN',

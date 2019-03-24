@@ -72,11 +72,9 @@ Scriber welcomes contributions from anyone and everyone. Please see our [contrib
     │   │   ├── config.json         # Jest config file
     │   │   └── units               # Unit test suites
     │   │       └── ...
-    │   ├── config.js               # Server config file handler
-    │   ├── config.json             # Server config file for all environments
     │   ├── app.js                  # Main server logic
-    │   ├── index.js                # Server bootstrap
-    │   └── utils.js                # Common utility functions
+    │   ├── config.js               # Server config file
+    │   └── index.js                # Server bootstrap
     ├── src
     │   ├── components              # Re-usable react components
     │   ├── services
