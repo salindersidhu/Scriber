@@ -29,4 +29,25 @@ describe('User API', () => {
             .send()
             .expect(422);
     });
+    test('It should not create a user with an invalid username', () => {
+        return request(app)
+            .post('/users')
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+            .send(data.user.invalid.username)
+            .expect(422);
+    });
+    test('It should not create a user with an invalid email', () => {
+        return request(app)
+            .post('/users')
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+            .send(data.user.invalid.email)
+            .expect(422);
+    });
+    test('It should not create a user with an invalid password', () => {
+        return request(app)
+            .post('/users')
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+            .send(data.user.invalid.password)
+            .expect(422);
+    });
 });

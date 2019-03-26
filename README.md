@@ -70,6 +70,7 @@ Scriber welcomes contributions from anyone and everyone. Please see our [contrib
     │   │   ├── setup.js            # Global test suite setup
     │   │   ├── teardown.js         # Global test suite teardown
     │   │   ├── config.json         # Jest config file
+    │   │   ├── data                # Unit test data
     │   │   └── units               # Unit test suites
     │   │       └── ...
     │   ├── app.js                  # Main server logic
