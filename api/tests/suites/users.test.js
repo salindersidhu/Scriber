@@ -3,23 +3,31 @@ const mongoose = require('mongoose');
 
 /* Import API server app */
 const app = require('../../app');
-const data = require('../data');
+const fixtures = require('../fixtures');
 
 beforeAll(async () => {
-    mongoose.connect(global.__MONGO_URI__, { useNewUrlParser: true });
+    await mongoose.connect(global.__MONGO_URI__, { useNewUrlParser: true });
 });
 
 afterAll(async () => {
-    mongoose.connection.close();
+    await mongoose.connection.close();
+});
+
+beforeEach(async () => {
+    await mongoose.connection.db.createCollection('users');
+});
+
+afterEach(async () => {
+    await mongoose.connection.db.dropCollection('users');
 });
 
 /* User API test suite */
 describe('User API', () => {
-    test('It should create a valid user', () => {
+    test('It should create a user with a valid request', () => {
         return request(app)
             .post('/users')
             .set('Content-Type', 'application/x-www-form-urlencoded')
-            .send(data.user.valid)
+            .send(fixtures.user.john1)
             .expect(200);
     });
     test('It should not create a user with an empty request', () => {
@@ -33,21 +41,37 @@ describe('User API', () => {
         return request(app)
             .post('/users')
             .set('Content-Type', 'application/x-www-form-urlencoded')
-            .send(data.user.invalid.username)
+            .send(fixtures.user.invalid.username)
             .expect(422);
     });
     test('It should not create a user with an invalid email', () => {
         return request(app)
             .post('/users')
             .set('Content-Type', 'application/x-www-form-urlencoded')
-            .send(data.user.invalid.email)
+            .send(fixtures.user.invalid.email)
             .expect(422);
     });
     test('It should not create a user with an invalid password', () => {
         return request(app)
             .post('/users')
             .set('Content-Type', 'application/x-www-form-urlencoded')
-            .send(data.user.invalid.password)
+            .send(fixtures.user.invalid.password)
             .expect(422);
+    });
+    test('It should not create a user with an existing email', () => {
+        mongoose.connection.collection('users').insert(fixtures.user.john1);
+        return request(app)
+            .post('/users')
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+            .send(fixtures.user.john1)
+            .expect(400);
+    });
+    test('It should create a user with same username but unique email', () => {
+        mongoose.connection.collection('users').insert(fixtures.user.john1);
+        return request(app)
+            .post('/users')
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+            .send(fixtures.user.john2)
+            .expect(200);
     });
 });
