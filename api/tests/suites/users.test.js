@@ -59,7 +59,7 @@ describe('User API', () => {
             .expect(422);
     });
     test('It should not create a user with an existing email', () => {
-        mongoose.connection.collection('users').insert(fixtures.user.john1);
+        mongoose.connection.collection('users').insertOne(fixtures.user.john1);
         return request(app)
             .post('/users')
             .set('Content-Type', 'application/x-www-form-urlencoded')
@@ -67,7 +67,7 @@ describe('User API', () => {
             .expect(400);
     });
     test('It should create a user with same username but unique email', () => {
-        mongoose.connection.collection('users').insert(fixtures.user.john1);
+        mongoose.connection.collection('users').insertOne(fixtures.user.john1);
         return request(app)
             .post('/users')
             .set('Content-Type', 'application/x-www-form-urlencoded')
