@@ -30,7 +30,7 @@ describe('Session API', () => {
             .send(requests.session.valid.johnA)
             .expect(400);
     });
-    test('It should not create a session with an invalid email in request', async () => {
+    test('It should not create a session with an invalid email', async () => {
         await users.create(fixtures.user.johnA);
         return request(app)
             .post('/sessions')
@@ -38,7 +38,7 @@ describe('Session API', () => {
             .send(requests.session.invalid.email)
             .expect(422);
     });
-    test('It should not create a session with an invalid password in request', async () => {
+    test('It should not create a session with an invalid password', async () => {
         await users.create(fixtures.user.johnA);
         return request(app)
             .post('/sessions')
@@ -68,6 +68,12 @@ describe('Session API', () => {
             .post('/sessions')
             .set('Content-Type', 'application/x-www-form-urlencoded')
             .send(requests.session.valid.johnA)
-            .expect(200);
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .then(res => {
+                expect(res.body.token).toMatch(
+                    /^[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.?[A-Za-z0-9-_.+/=]*$/
+                );
+            });
     });
 });
