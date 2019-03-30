@@ -29,44 +29,44 @@ describe('User API', () => {
         return request(app)
             .post('/users')
             .set('Content-Type', 'application/x-www-form-urlencoded')
-            .send(requests.user.valid.johnA)
+            .send(requests.users.johnA.valid)
             .expect(200);
     });
     test('It should not create a user with an invalid username', () => {
         return request(app)
             .post('/users')
             .set('Content-Type', 'application/x-www-form-urlencoded')
-            .send(requests.user.invalid.username)
+            .send(requests.users.johnA.invalid.username)
             .expect(422);
     });
     test('It should not create a user with an invalid email', () => {
         return request(app)
             .post('/users')
             .set('Content-Type', 'application/x-www-form-urlencoded')
-            .send(requests.user.invalid.email)
+            .send(requests.users.johnA.invalid.email)
             .expect(422);
     });
     test('It should not create a user with an invalid password', () => {
         return request(app)
             .post('/users')
             .set('Content-Type', 'application/x-www-form-urlencoded')
-            .send(requests.user.invalid.password)
+            .send(requests.users.johnA.invalid.password)
             .expect(422);
     });
     test('It should not create a user with an existing email', async () => {
-        await users.create(fixtures.user.johnA);
+        await users.create(fixtures.users.johnA);
         return request(app)
             .post('/users')
             .set('Content-Type', 'application/x-www-form-urlencoded')
-            .send(requests.user.valid.johnA)
+            .send(requests.users.johnA.valid)
             .expect(400);
     });
     test('It should create a user with an existing username but unique email', async () => {
-        await users.create(fixtures.user.johnA);
+        await users.create(fixtures.users.johnA);
         return request(app)
             .post('/users')
             .set('Content-Type', 'application/x-www-form-urlencoded')
-            .send(requests.user.valid.johnB)
+            .send(requests.users.johnB.valid)
             .expect(200);
     });
 });

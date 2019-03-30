@@ -27,47 +27,47 @@ describe('Session API', () => {
         return request(app)
             .post('/sessions')
             .set('Content-Type', 'application/x-www-form-urlencoded')
-            .send(requests.session.valid.johnA)
+            .send(requests.sessions.johnA.valid)
             .expect(400);
     });
     test('It should not create a session with an invalid email', async () => {
-        await users.create(fixtures.user.johnA);
+        await users.create(fixtures.users.johnA);
         return request(app)
             .post('/sessions')
             .set('Content-Type', 'application/x-www-form-urlencoded')
-            .send(requests.session.invalid.email)
+            .send(requests.sessions.johnA.invalid.email)
             .expect(422);
     });
     test('It should not create a session with an invalid password', async () => {
-        await users.create(fixtures.user.johnA);
+        await users.create(fixtures.users.johnA);
         return request(app)
             .post('/sessions')
             .set('Content-Type', 'application/x-www-form-urlencoded')
-            .send(requests.session.invalid.password)
+            .send(requests.sessions.johnA.invalid.password)
             .expect(422);
     });
     test('It should not create a session with an incorrect email', async () => {
-        await users.create(fixtures.user.johnA);
+        await users.create(fixtures.users.johnA);
         return request(app)
             .post('/sessions')
             .set('Content-Type', 'application/x-www-form-urlencoded')
-            .send(requests.session.incorrect.email)
+            .send(requests.sessions.johnA.incorrect.email)
             .expect(400);
     });
     test('It should not create a session with an incorrect password', async () => {
-        await users.create(fixtures.user.johnA);
+        await users.create(fixtures.users.johnA);
         return request(app)
             .post('/sessions')
             .set('Content-Type', 'application/x-www-form-urlencoded')
-            .send(requests.session.incorrect.password)
+            .send(requests.sessions.johnA.incorrect.password)
             .expect(400);
     });
     test('It should create a session with a valid request', async () => {
-        await users.create(fixtures.user.johnA);
+        await users.create(fixtures.users.johnA);
         return request(app)
             .post('/sessions')
             .set('Content-Type', 'application/x-www-form-urlencoded')
-            .send(requests.session.valid.johnA)
+            .send(requests.sessions.johnA.valid)
             .expect('Content-Type', /json/)
             .expect(200)
             .then(res => {
