@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 /* Import API server app */
 const app = require('../../app');
 
-/* Import user model to create mock data */
+/* Import models to create mock data */
 const users = require('../../models/users');
 const { fixtures, requests } = require('../data');
 
