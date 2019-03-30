@@ -7,7 +7,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "api": "nodemon --watch api api/index.js",
+    "api": "nodemon --watch api api/index.js --ignore api/tests",
     "api:docs": "rm -rf api/docs && apidoc -i api/ -o api/docs/",
     "api:tests": "jest --config api/tests/config.json"
   },
